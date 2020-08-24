@@ -1,5 +1,4 @@
-def EliminaGauss():
-  def LU(A,f):
+def LU(A,f):
     # get the size of the system
     n = len(f)
     
@@ -36,7 +35,7 @@ def EliminaGauss():
     info = 1
     return M,info
 
-  def BS(M):
+def BS(M):
     ########################################################
     # Function to backsubstitute the results
     # and get the final solution
@@ -63,5 +62,4 @@ def EliminaGauss():
     x=M[:,n]
     return x,info
 
-  ########################################################
-  ########################################################
+
