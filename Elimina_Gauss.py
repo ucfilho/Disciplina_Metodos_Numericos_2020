@@ -1,3 +1,6 @@
+import numpy as np
+import numpy.linalg as npla
+
 def LU(A,f):
     # get the size of the system
     n = len(f)
