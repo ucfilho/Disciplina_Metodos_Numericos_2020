@@ -16,10 +16,10 @@ def jacobi(A,f,x,maxIter = 100, tol = 1.0e-4):
         return f
     # Loop to iterate until we converge to solution
     # or we reach the maximum number of iterations
-    xnew = numpy.copy(x)
+    xnew = np.copy(x)
     for iter in range(maxIter):
         # calculate residual
-        res = f - numpy.dot(A,x)
+        res = f - np.dot(A,x)
         # check L2-norm for convergence
         if (nl.norm(res,2) < tol):
             #print("Converged after", iter,"iterations ")
@@ -31,6 +31,6 @@ def jacobi(A,f,x,maxIter = 100, tol = 1.0e-4):
                 if(i != j):
                     sum += A[i,j]*x[j]
             xnew[i] = (f[i] - sum)/A[i,i]
-        x = numpy.copy(xnew)
+        x = np.copy(xnew)
         #print('Failed to converge after', iter,'iterations')
     return x,iter
