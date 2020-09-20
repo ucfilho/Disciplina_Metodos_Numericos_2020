@@ -1,6 +1,6 @@
 
 import numpy as np
-global FUNCTION
+
 
 def Enxame(PAR,NPAR,MAX,MIN):
     x=np.zeros((NPAR, len(MAX)))
