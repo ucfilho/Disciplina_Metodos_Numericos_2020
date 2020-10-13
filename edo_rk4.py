@@ -28,12 +28,7 @@ def rk4( f, x0, t ):
     k3 = np.array( [0] * nx )
     k4 = np.array( [0] * nx)
     
-    print('===================')
-    print(x)
-    print(k1)
-    print('====00000000=====')
-    print(x[1,:])
-    
+  
     
     h = t[1] - t[0]
     
@@ -43,6 +38,7 @@ def rk4( f, x0, t ):
             k2[j] = h * f( x[i,:] + 0.5 * k1[j], t[i] + 0.5 * h )[j]
             k3[j] = h * f( x[i,:] + 0.5 * k2[j], t[i] + 0.5 * h )[j]
             k4[j] = h * f( x[i,:] + k3[j], t[i+1] )[j]
+            print('======');print(k1)
             x[i+1,j] = x[i,j] + ( k1[j] + 2.0 * ( k2[j]  + k3[j]  ) + k4[j]  ) / 6.0
 
     return x
