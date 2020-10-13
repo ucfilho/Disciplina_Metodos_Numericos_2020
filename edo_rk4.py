@@ -39,11 +39,10 @@ def rk4( f, x0, t ):
     
     for i in range( n - 1 ):
         for j in range(nx):
-            k1[j] = h * f( x[i,:], t[i] )
-            print(gxr)
-            k2[j] = h * f( x[i,:] + 0.5 * k1[j], t[i] + 0.5 * h )
-            k3[j] = h * f( x[i,:] + 0.5 * k2[j], t[i] + 0.5 * h )
-            k4[j] = h * f( x[i,:] + k3[j], t[i+1] )
+            k1[j] = h * f( x[i,:], t[i] )[j]
+            k2[j] = h * f( x[i,:] + 0.5 * k1[j], t[i] + 0.5 * h )[j]
+            k3[j] = h * f( x[i,:] + 0.5 * k2[j], t[i] + 0.5 * h )[j]
+            k4[j] = h * f( x[i,:] + k3[j], t[i+1] )[j]
             x[i+1,j] = x[i,j] + ( k1[j] + 2.0 * ( k2[j]  + k3[j]  ) + k4[j]  ) / 6.0
 
     return x
