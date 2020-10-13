@@ -1,3 +1,5 @@
+import numpy as np
+
 def rk4( f, x0, t ):
     """Fourth-order Runge-Kutta method to solve x' = f(x,t) with x(t[0]) = x0.
     USAGE:
