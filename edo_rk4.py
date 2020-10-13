@@ -27,7 +27,7 @@ def rk4( f, x0, t ):
     k2 = np.zeros(nx, dtype = float) 
     k3 = np.zeros(nx, dtype = float) 
     k4 = np.zeros(nx, dtype = float) 
-    print('======');print(k1)
+    print('======');print(k1);print(glx)
     
   
     
