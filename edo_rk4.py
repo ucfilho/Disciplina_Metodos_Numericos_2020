@@ -33,13 +33,14 @@ def rk4( f, x0, t ):
     print(k1)
     print('====00000000=====')
     print(x[1,:])
-    print(gxr)
+    
     
     h = t[1] - t[0]
     
     for i in range( n - 1 ):
         for j in range(nx):
             k1[j] = h * f( x[i,:], t[i] )
+            print(gxr)
             k2[j] = h * f( x[i,:] + 0.5 * k1[j], t[i] + 0.5 * h )
             k3[j] = h * f( x[i,:] + 0.5 * k2[j], t[i] + 0.5 * h )
             k4[j] = h * f( x[i,:] + k3[j], t[i+1] )
