@@ -23,10 +23,10 @@ def rk4( f, x0, t ):
     nx = len(x0)
     n = len( t )
     x = np.array( [ x0 ] * n )
-    k1 = np.array( [0.0] * nx )
-    k2 = np.array( [0.0] * nx )
-    k3 = np.array( [0.0] * nx )
-    k4 = np.array( [0.0] * nx)
+    k1 = np.zeros(nx, dtype = float) 
+    k2 = np.zeros(nx, dtype = float) 
+    k3 = np.zeros(nx, dtype = float) 
+    k4 = np.zeros(nx, dtype = float) 
     
   
     
