@@ -20,18 +20,22 @@ def rk4( f, x0, t ):
                 entry in t array.  If a system is being solved, x will be
                 an array of arrays.
     """
-
+    nx = len(x0)
     n = len( t )
     x = np.array( [ x0 ] * n )
-    nx = len(x0)
+    k1 = np.array( [0] * nx )
+    k2 = np.array( [0] * nx )
+    k3 = np.array( [0] * nx )
+    k4 = np.array( [0] * nx)
+    
+    h = t[1] - t[0]
+    
     for i in range( n - 1 ):
-        h = t[i+1] - t[i]
-        k1 = h * f( x[i,:], t[i] )
-        k2 = h * f( x[i,:] + 0.5 * k1, t[i] + 0.5 * h )
-        k3 = h * f( x[i,:] + 0.5 * k2, t[i] + 0.5 * h )
-        k4 = h * f( x[i,:] + k3, t[i+1] )
-        
         for j in range(nx):
+            k1[j] = h * f( x[i,:], t[i] )
+            k2[j] = h * f( x[i,:] + 0.5 * k1[j], t[i] + 0.5 * h )
+            k3[j] = h * f( x[i,:] + 0.5 * k2[j], t[i] + 0.5 * h )
+            k4[j] = h * f( x[i,:] + k3[j], t[i+1] )
             x[i+1,j] = x[i,j] + ( k1[j] + 2.0 * ( k2[j]  + k3[j]  ) + k4[j]  ) / 6.0
 
     return x
