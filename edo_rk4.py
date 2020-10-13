@@ -28,6 +28,11 @@ def rk4( f, x0, t ):
     k3 = np.array( [0] * nx )
     k4 = np.array( [0] * nx)
     
+    print('===================')
+    print(x)
+    print(k1)
+    print(gxr)
+    
     h = t[1] - t[0]
     
     for i in range( n - 1 ):
