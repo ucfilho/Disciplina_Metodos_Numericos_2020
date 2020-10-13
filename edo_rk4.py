@@ -31,6 +31,8 @@ def rk4( f, x0, t ):
     print('===================')
     print(x)
     print(k1)
+    print('====00000000=====')
+    print(x[1,:])
     print(gxr)
     
     h = t[1] - t[0]
